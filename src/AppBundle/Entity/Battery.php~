@@ -1,0 +1,42 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: v.bunchuk
+ * Date: 11/05/2016
+ * Time: 11:12
+ */
+
+// src/AppBundle/Entity/Battery.php
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="battery")
+ */
+class Battery
+{
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     */
+    private $count;
+}

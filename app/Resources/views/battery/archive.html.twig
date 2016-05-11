@@ -1,0 +1,42 @@
+{# app/Resources/views/lucky/number.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Welcome to Recycle Batteries application</h1>
+    <p>Click <a href="/app_dev.php/battery/add">here</a> to add batteries to the box</p>
+    <h2>Statistics</h2>
+    <style>
+        table, td, th {
+            border: 1px solid;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+
+    {% if batteries == NULL %}
+        Box is empty
+    {% else %}
+
+        <table>
+            <thead>
+            <th>Battery type</th>
+            <th>Totoal count</th>
+            </thead>
+            <tbody>
+            {% for battery in batteries %}
+                <tr>
+                    <td>
+                        {{ battery.b_type }}
+                    </td>
+                    <td>
+                        {{ battery.b_count }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}
