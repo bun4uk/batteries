@@ -51,7 +51,7 @@ class BatteryController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($battery);
             $em->flush();
-            return $this->redirectToRoute('battery');
+            return $this->redirectToRoute('battery home');
         }
 
         return $this->render('battery/add.html.twig', array(
