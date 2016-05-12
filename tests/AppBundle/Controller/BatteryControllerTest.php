@@ -31,12 +31,10 @@ class BatteryControllerTest extends WebTestCase
         $form['battery[name]'] = 'Lucas';
         $form['battery[count]'] = 'asd';
         $crawler = $client->submit($form);
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('not valid', $crawler->filter('li')->text());
         $form['battery[count]'] = 2;
         $crawler = $client->submit($form);
-        $this->assertEquals(
-            302,
-            $client->getResponse()->getStatusCode()
-        );
+        $this->assertEquals(302, $client->getResponse()->getStatusCode());
     }
 }
